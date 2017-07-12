@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>CloudComputingMemCommExample</servlet-name>
+		<servlet-class>edu.uci.cc.CloudComputingMemCommExampleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CloudComputingMemCommExample</servlet-name>
+		<url-pattern>/cloudcomputingmemcommexample</url-pattern>
+	</servlet-mapping>
+    <servlet>
+        <servlet-name>add</servlet-name>
+        <servlet-class>edu.uci.cc.AddItem</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/add/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>list</servlet-name>
+        <servlet-class>edu.uci.cc.ListItems</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>list</servlet-name>
+        <url-pattern>/list/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>message</servlet-name>
+        <servlet-class>edu.uci.cc.SendMessage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>message</servlet-name>
+        <url-pattern>/message/*</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>securityfilter</filter-name>
+        <filter-class>edu.uci.cc.SecurityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>securityfilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
